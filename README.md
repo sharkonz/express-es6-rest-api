@@ -11,8 +11,6 @@ Getting Started
 ```sh
 # clone it 
 git https://github.com/sharkonz/express-es6-rest-api.git
-cd express-es6-rest-api
-
 
 # Install dependencies
 npm install

@@ -9,8 +9,8 @@ Getting Started
 ---------------
 
 ```sh
-# clone it
-git clone git@github.com:developit/express-es6-rest-api.git
+# clone it 
+git https://github.com/sharkonz/express-es6-rest-api.git
 cd express-es6-rest-api
 
 

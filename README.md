@@ -1,15 +1,8 @@
-Express & ES6 REST API Boilerplate
+Scrapper System for Lusha
 ==================================
 
-This is a straightforward boilerplate for building REST APIs with ES6 and Express.
-
-- ES6 support via [babel](https://babeljs.io)
-- REST resources as middleware via [resource-router-middleware](https://github.com/developit/resource-router-middleware)
-- CORS support via [cors](https://github.com/troygoode/node-cors)
-- Body Parsing via [body-parser](https://github.com/expressjs/body-parser)
-
-> Tip: If you are using [Mongoose](https://github.com/Automattic/mongoose), you can automatically expose your Models as REST resources using [restful-mongoose](https://git.io/restful-mongoose).
-
+This is a assignment for Lusha.
+its a Node.js server that listen to '/parse' HTTP POST method.
 
 
 Getting Started
@@ -20,8 +13,6 @@ Getting Started
 git clone git@github.com:developit/express-es6-rest-api.git
 cd express-es6-rest-api
 
-# Make it your own
-rm -rf .git && git init && npm init
 
 # Install dependencies
 npm install
@@ -29,29 +20,27 @@ npm install
 # Start development live-reload server
 PORT=8080 npm run dev
 
+Please check config.json - mongoDB url , port of server need to be set there. (right now there a default values).
+
 # Start production server:
 PORT=8080 npm start
 ```
-Docker Support
-------
-```sh
-cd express-es6-rest-api
 
-# Build your docker
-docker build -t es6/api-service .
-#            ^      ^           ^
-#          tag  tag name      Dockerfile location
+Assumptions
+-------
+- URL`s that already saved in DB, wont gonna parsed again.
+ that assummption mean that the html will stay the same.
+ if the html that coming back from Parser is dynamic,
+ there is two options:
+ 1. save in db another colum: updatedAt, and when checking is exist url, if exist: check updatedAt>  PERIOD_TIME that set ahead.
+ 2. using in-memmory like Redis(with period of time that its saves), instead of checking at DB that takes alot of time & money. (better solution than what developed)
 
-# run your docker
-docker run -p 8080:8080 es6/api-service
-#                 ^            ^
-#          bind the port    container tag
-#          to your host
-#          machine port   
+What missing:
+- all kinds of tests. Im sorry guys it`s my first NodeJs project.  i didnt have enough time for learn & implements tests. 90% of that weekend time was how to run a nodeJs project.
+for sure the most critical part of my code is the recursive function, that need to make sure its works probally - its it, but tests make it feel much safer.
 
-```
 
 License
 -------
+Genereted from builerplate (https://github.com/developit/express-es6-rest-api).
 
-MIT
